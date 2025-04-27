@@ -1,0 +1,99 @@
+:root {
+  --neon-blue: #00f3ff;
+  --dark-bg: #121212;
+  --darker-bg: #0a0a0a;
+  --light-text: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.spotlight-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-hover::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 243, 255, 0.1) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.spotlight-hover:hover::before {
+  opacity: 1;
+}
+
+/* Cursor spotlight effect */
+#cursor-spotlight {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 243, 255, 0.15) 0%,
+    rgba(0, 243, 255, 0.1) 10%,
+    rgba(0, 243, 255, 0.05) 20%,
+    transparent 65%
+  );
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  mix-blend-mode: screen;
+  will-change: transform;
+  transition: opacity 0.2s ease;
+  transform-origin: 0 0;
+  margin-left: -200px;
+  margin-top: -200px;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px var(--neon-blue);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--neon-blue);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--neon-blue);
+  }
+}
