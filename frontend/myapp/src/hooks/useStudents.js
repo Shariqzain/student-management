@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-const API_URL = 'http://localhost:5000/api/students';
+const API_URL = 'https://student-management-backendbac.onrender.com';
 
 export const useStudents = () => {
   const [students, setStudents] = useState([]);
